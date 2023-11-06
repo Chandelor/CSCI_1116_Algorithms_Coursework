@@ -1,0 +1,35 @@
+/**
+ * @author Chandelor
+ * Need to Figure out what time complexity this is and enter it here.
+ * abcabcdgabxy
+ */
+import java.util.Scanner;
+
+public class Exercise_22_1 {
+
+	public static void main(String[] args) {
+
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter a String: ");
+		String userString = input.next();
+		
+		String currentString = "";
+		String maxString = "";
+		for (int i = 0; i < userString.length(); i++) {
+			
+			// Runs if string does not contain specified character.
+			if (currentString.indexOf(userString.charAt(i)) < 0) {
+				currentString += userString.charAt(i);
+				System.out.println(currentString);
+			}
+			
+			// Runs if string contains specified character.
+			else if (currentString.length() > maxString.length()) maxString = currentString;
+			else currentString = "" + userString.charAt(i);
+			
+		}
+		
+	}
+
+}

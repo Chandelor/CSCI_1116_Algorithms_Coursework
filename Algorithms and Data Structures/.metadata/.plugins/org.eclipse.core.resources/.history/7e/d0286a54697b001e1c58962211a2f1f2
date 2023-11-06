@@ -1,0 +1,43 @@
+/**
+ * @author Chandelor
+ */
+
+import java.util.Scanner;
+
+public class Exercise_22_3 {
+	
+	public static void main(String[] args) {
+		
+		@SuppressWarnings("resource")
+		Scanner input = new Scanner(System.in);
+		int index = 0;
+		int matched = 0;
+
+		System.out.print("Enter first String: ");
+		String string1 = input.nextLine();
+		
+		System.out.print("Enter second String: ");
+		String string2 = input.nextLine();
+
+		for (int n = 0; n < string1.length(); n++) {
+			
+			if (string1.charAt(n) == string2.charAt(matched)) matched++;
+			
+			else if (string1.charAt(n) == string2.charAt(0) && matched == 0) {
+				index = n;
+				matched++;
+			}
+			
+			else {
+				matched = 0;
+				index = 0;
+			}
+
+			if (matched == string2.length()) break;
+		}
+			
+		if (index > 1) System.out.println("matched at index " + index);
+		else System.out.println("The second string is not a substring of the first string.");
+	}
+	
+}
